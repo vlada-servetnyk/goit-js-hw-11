@@ -9,6 +9,11 @@ import "izitoast/dist/css/iziToast.min.css";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
+const lightbox = new SimpleLightbox('.gallery a', {
+                captionsData: 'alt',
+                captionDelay: 250,
+            });
+
 import errorImage from './img/error.png';
 
 const form = document.querySelector(".form");
@@ -48,10 +53,7 @@ function handleSearch(event) {
             };
             loader.style.display = "inline-block";
             gallery.insertAdjacentHTML("beforeend", renderImages(arrImg));
-            const lightbox = new SimpleLightbox('.gallery a', {
-                captionsData: 'alt',
-                captionDelay: 250,
-            });
+            
             lightbox.refresh();
             inputElement.value = "";
             loader.style.display = "none";
