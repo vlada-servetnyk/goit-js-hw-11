@@ -39,6 +39,7 @@ function handleSearch(event) {
         );
         return;
     };
+    loader.style.display = "inline-block";
     imagesSearch(inputSearch)
         .then((arrImg) => {
             if (arrImg.length === 0) {
@@ -51,9 +52,7 @@ function handleSearch(event) {
                     position: 'topRight',
                 })
             };
-            loader.style.display = "inline-block";
             gallery.insertAdjacentHTML("beforeend", renderImages(arrImg));
-            
             lightbox.refresh();
             inputElement.value = "";
             loader.style.display = "none";
